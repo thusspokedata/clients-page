@@ -52,6 +52,17 @@ h1 {
 }
 
 
+/* Modify the background color */
+.navbar-custom {
+	background-color: #D9C259;
+  color: #888C41;
+  font-family: 'Old Standard TT', serif;;
+}
+
+.navbar-brand {
+  font-family: 'Old Standard TT', serif;
+  color: #888C41;
+}
 
 
 /* src/styles.css */

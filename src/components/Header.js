@@ -10,8 +10,8 @@ import Navbar from "react-bootstrap/Navbar";
 function Header() {
   const { isLoggedIn, logoutUser } = useContext(AuthContext);
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top" >
-      <Container>
+    <Navbar collapseOnSelect expand="lg"  fixed="top" className="p-3 navbar-custom" >
+      <Container className="" >
         <Navbar.Brand href="/">ClientsPage</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

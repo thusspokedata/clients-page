@@ -7,14 +7,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-// import NavDropdown from "react-bootstrap/NavDropdown";
-// import Button from "react-bootstrap/Button";
-// import { Link } from "react-router-dom";
-
-// import SignUp from "./Signup";
-
-// const handleShow = () => setShow(true);
-
 function Header() {
   const { isLoggedIn, logoutUser } = useContext(AuthContext);
   return (
@@ -27,7 +19,7 @@ function Header() {
             <>
               <Nav className="me-auto">
                 <Nav.Link href="#features">Menu</Nav.Link>
-                <Nav.Link href="/qr">QR</Nav.Link>
+                <Nav.Link href="/">QR</Nav.Link>
               </Nav>
               <Nav>
                 <Nav.Link onClick={logoutUser} href="/login">

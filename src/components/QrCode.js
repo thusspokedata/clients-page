@@ -1,45 +1,39 @@
-import { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { QRCodeCanvas } from "qrcode.react";
+import { AuthContext } from "../context/clientAuth";
+
+import axios from "axios";
 
 const QrCode = () => {
-  const [url, setUrl] = useState("");
+  const [userData, setUserData] = useState("");
 
-  const downloadQRCode = (e) => {
-    e.preventDefault();
-    setUrl("");
-  };
+  const { user } = useContext(AuthContext);
+  console.log(user);
 
-  const qrCodeEncoder = (e) => {
-    setUrl(e.target.value);
-  };
+  useEffect(() => {
+    axios
+      .get(`/api/auth/${user._id}`)
+      .then((response) => {
+        console.log(response);
+        setUserData(response.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const qrcode = (
-    <QRCodeCanvas
-      id="qrCode"
-      value={url}
-      size={300}
-      // bgColor={"#00ff00"}
-      level={"H"}
-    />
+    <QRCodeCanvas id="qrCode" value={userData._id} size={300} level={"H"} />
   );
   return (
     <>
-      <h1>Username: </h1>
-      <div className="qrcode__container mt-5">
-        <div>{qrcode}</div>
-        <div className="input__group">
-          <form onSubmit={downloadQRCode}>
-            <label>Enter URL</label>
-            <input
-              type="text"
-              value={url}
-              onChange={qrCodeEncoder}
-              placeholder="https://hackernoon.com"
-            />
-            <button type="submit" disabled={!url}>
-              Download QR code
-            </button>
-          </form>
+      <div className="container">
+        <div className="row">
+          <h1 className="">
+            Hi {userData.username} !! this your QR code, use it to get discounts
+            on your favorites Restaurants
+          </h1>
+          <div className="qrcode__container mt-5">
+            <div>{qrcode}</div>
+          </div>
         </div>
       </div>
     </>

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Belleza&family=Old+Standard+TT&display=swap');
+
+/* font-family: 'Bebas Neue', cursive;
+font-family: 'Belleza', sans-serif;
+font-family: 'Old Standard TT', serif; */
+
 .App {
   text-align: center;
 }
@@ -36,6 +42,17 @@
     transform: rotate(360deg);
   }
 }
+
+
+h1 {
+  font-family: bebas neue;
+  font-size: large;
+  text-align: center;
+  color: #888C41
+}
+
+
+
 
 /* src/styles.css */
 /* *,

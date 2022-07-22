@@ -10,14 +10,14 @@ import Navbar from "react-bootstrap/Navbar";
 function Header() {
   const { isLoggedIn, logoutUser } = useContext(AuthContext);
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top" >
       <Container>
         <Navbar.Brand href="/">ClientsPage</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           {isLoggedIn ? (
             <>
-              <Nav className="me-auto">
+              <Nav className="me-auto align-items-center" >
                 <Nav.Link href="#features">Menu</Nav.Link>
                 <Nav.Link href="/">QR</Nav.Link>
               </Nav>

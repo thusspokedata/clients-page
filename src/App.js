@@ -24,10 +24,18 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/create-company"
+          element={
+            <ProtectedRoute redirectTo="/login">
+              <Company />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/admin-signup" element={<AdminSignup />} />
-        
+
         {/* <Route path="/signup-login" element={<SignupLogin />} /> */}
-        <Route path="/create-company" element={<Company />} />
+
         {/* <Route path="/add-employee" element={<AddEmployee />} /> */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />

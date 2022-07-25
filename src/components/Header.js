@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/clientAuth";
+import { AuthContext } from "../context/auth";
 
 // Bootstrap
 import Container from "react-bootstrap/Container";
@@ -10,7 +10,7 @@ import Navbar from "react-bootstrap/Navbar";
 function Header() {
   const { isLoggedIn, logoutUser } = useContext(AuthContext);
   return (
-    <Navbar collapseOnSelect expand="lg"  fixed="top" className="p-3 navbar-custom" >
+    <Navbar collapseOnSelect expand="lg"  fixed="sticky-top"  className="p-3 navbar-custom" >
       <Container className="" >
         <Navbar.Brand href="/">ClientsPage</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -18,7 +18,7 @@ function Header() {
           {isLoggedIn ? (
             <>
               <Nav className="me-auto align-items-center" >
-                <Nav.Link href="#features">Menu</Nav.Link>
+                <Nav.Link href="/create-company">Add your restaurant</Nav.Link>
                 <Nav.Link href="/">QR</Nav.Link>
               </Nav>
               <Nav>
@@ -30,10 +30,8 @@ function Header() {
           ) : (
             <>
               <Nav>
-                <Nav.Link href="/signup">Sign Up</Nav.Link>
-                <Nav.Link eventKey={2} href="/login">
-                  Login
-                </Nav.Link>
+                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link href="/Signup">Not an account? be a client</Nav.Link>
               </Nav>
             </>
           )}

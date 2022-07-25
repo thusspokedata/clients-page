@@ -1,25 +1,24 @@
 import React from "react";
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
-const Signup = () => {
+const AdminSignup = () => {
   // bootstrap
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  //   const handleShow = () => setShow(true);
 
   // adding newbeer states
-  const [username, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
-  const [role, setRole] = useState('client')
   const [addressNumber, setAddressNumber] = useState("");
   const [city, setCity] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -28,7 +27,6 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const requestBody = {
       username,
       password,
@@ -36,46 +34,44 @@ const Signup = () => {
       address,
       addressNumber,
       city,
-      role,
+      role: "admin",
     }
     axios
       .post("http://localhost:5005/api/auth/signup", requestBody)
       .then((response) => {
-        //console.log(response);
-        navigate("/login");
+        navigate("/signup-login");
       })
       .catch((err) => {
         const errorDescription = err.response.data.message;
         setErrorMessage(errorDescription);
       });
 
-    setName("");
+    setUsername("");
     setPassword("");
     setEmail("");
     setAddress("");
     setAddressNumber("");
     setCity("");
-    setRole("")
   };
 
-  const handleUsernameChange = (e) => setName(e.target.value);
+  const handleUsernameChange = (e) => setUsername(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleAddressChange = (e) => setAddress(e.target.value);
   const handleAddressNumberChange = (e) => setAddressNumber(e.target.value);
   const handleCityChange = (e) => setCity(e.target.value);
-  const handletoAdminChange = (e) => setRole(e.target.value);
-  
 
   return (
     <>
+     <section className="mt-5">
 
+      </section>
       <section className="mt-5">
 
       </section>
-      <Button variant="info text-white mx-3 px-5 mt-5" onClick={handleShow}>
+      {/* <Button variant="info text-white mx-3 px-5" onClick={handleShow}>
         Sign Up
-      </Button>
+      </Button> */}
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -156,9 +152,6 @@ const Signup = () => {
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox" >
-              <Form.Check type="checkbox" label="Do you want to add your restaurant?" onChange={handletoAdminChange} value={"admin"} />
-            </Form.Group>
             <Modal.Footer>
               <Button
                 variant="info text-white col-6 mx-auto"
@@ -182,4 +175,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default AdminSignup;

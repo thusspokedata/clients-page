@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { AuthContext } from "../context/clientAuth";
+import { AuthContext } from "../context/auth";
 
 // Bootstrap
 import Button from "react-bootstrap/Button";
@@ -10,9 +10,9 @@ import Modal from "react-bootstrap/Modal";
 
 const Login = () => {
   // bootstrap
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  //   const handleShow = () => setShow(true);
+  const handleShow = () => setShow(true);
 
   // adding login states
   const [password, setPassword] = useState("");
@@ -57,9 +57,12 @@ const Login = () => {
 
   return (
     <>
-      {/* <Button variant="info text-white mx-3 px-5" onClick={handleShow}>
-        Sign Up
-      </Button> */}
+      <section className="mt-5">
+
+      </section>
+      <Button variant="info text-white mx-3 px-5 mt-5" onClick={handleShow}>
+        Login
+      </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

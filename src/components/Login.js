@@ -10,9 +10,9 @@ import Modal from "react-bootstrap/Modal";
 
 const Login = () => {
   // bootstrap
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleShow = () => setShow(false);
 
   // adding login states
   const [password, setPassword] = useState("");
@@ -57,16 +57,14 @@ const Login = () => {
 
   return (
     <>
-      <section className="mt-5">
-
-      </section>
-      <Button variant="info text-white mx-3 px-5 mt-5" onClick={handleShow}>
+     
+      {/* <Button variant="dark text-white mx-3 px-5 mt-5 shadow-sm rounded-pill" onClick={handleShow}>
         Login
-      </Button>
+      </Button> */}
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Login</Modal.Title>
+          <Modal.Title className="formular fw-bold fs-3">Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
@@ -98,7 +96,7 @@ const Login = () => {
             </Form.Group>
             <Modal.Footer>
               <Button
-                variant="info text-white col-6 mx-auto"
+                variant="dark text-white col-6 mx-auto border-0 rounded-pill"
                 type="submit"
                 onClick={handleClose}
               >

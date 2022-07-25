@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Belleza&family=Old+Standard+TT&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Belleza&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
 
 /* font-family: 'Bebas Neue', cursive;
 font-family: 'Belleza', sans-serif;
@@ -64,6 +64,30 @@ h1 {
   color: #888C41;
 }
 
+.formular {
+  color:#8C7D3A;
+  font-family: 'Old Standard TT', serif;
+  font-weight: bold;
+  font-size: large;
+}
+
+.mb-3 {
+  color:#8C6856;
+  font-family: 'Old Standard TT', serif;
+  
+}
+
+.col-form-label {
+  color:#8C6856;
+  font-family: 'Old Standard TT', serif;
+}
+
+.signupForm {
+  color:#8C7D3A;
+  font-family: 'Old Standard TT', serif;
+  font-weight: bold;
+  font-size: large;
+}
 
 /* src/styles.css */
 /* *,

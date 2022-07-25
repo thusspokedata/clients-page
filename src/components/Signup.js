@@ -10,21 +10,21 @@ import Modal from "react-bootstrap/Modal";
 
 const Signup = () => {
   // bootstrap
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleShow = () => setShow(true);
 
   // adding newbeer states
   const [username, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
-  const [role, setRole] = useState('client')
+  const [role, setRole] = useState("client");
   const [addressNumber, setAddressNumber] = useState("");
   const [city, setCity] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
-  const navigate = useNavigate() 
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ const Signup = () => {
       addressNumber,
       city,
       role,
-    }
+    };
     axios
       .post("http://localhost:5005/api/auth/signup", requestBody)
       .then((response) => {
@@ -55,7 +55,7 @@ const Signup = () => {
     setAddress("");
     setAddressNumber("");
     setCity("");
-    setRole("")
+    setRole("");
   };
 
   const handleUsernameChange = (e) => setName(e.target.value);
@@ -65,17 +65,15 @@ const Signup = () => {
   const handleAddressNumberChange = (e) => setAddressNumber(e.target.value);
   const handleCityChange = (e) => setCity(e.target.value);
   const handletoAdminChange = (e) => setRole(e.target.value);
-  
 
   return (
     <>
-
-      <section className="mt-5">
+      {/* <section className="mt-5">
 
       </section>
       <Button variant="info text-white mx-3 px-5 mt-5" onClick={handleShow}>
         Sign Up
-      </Button>
+      </Button> */}
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -156,8 +154,13 @@ const Signup = () => {
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox" >
-              <Form.Check type="checkbox" label="Do you want to add your restaurant?" onChange={handletoAdminChange} value={"admin"} />
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check
+                type="checkbox"
+                label="Do you want to add your restaurant?"
+                onChange={handletoAdminChange}
+                value={"admin"}
+              />
             </Form.Group>
             <Modal.Footer>
               <Button

@@ -1,19 +1,25 @@
-import React from "react";
-
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import Card from 'react-bootstrap/Card';
+import Card from "react-bootstrap/Card";
+
+import { AuthContext } from "../context/auth";
 
 const CreateCompany = () => {
+  // const [userData, setUserData] = useState("");
+
   // bootstrap
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
   //   const handleShow = () => setShow(true);
+
+  const { user } = useContext(AuthContext);
+  // console.log(`this is the userId: ${user._id}`);
 
   // adding new company states
   const [companyname, setCompanyname] = useState("");
@@ -23,7 +29,7 @@ const CreateCompany = () => {
   const [city, setCity] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
-  const navigate = useNavigate() 
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,7 +40,7 @@ const CreateCompany = () => {
       address,
       addressNumber,
       city,
-      role: "admin"
+      adminResto: user._id,
     };
     console.log(requestBody);
     axios
@@ -63,10 +69,10 @@ const CreateCompany = () => {
 
   return (
     <>
-    <Card style={{ width: '28rem' }} className="m-5" border="info">
-      <Card.Body>
-        <Card.Title>Add new company</Card.Title>
-        <Form onSubmit={handleSubmit}>
+      <Card style={{ width: "28rem" }} className="m-5" border="info">
+        <Card.Body>
+          <Card.Title>Add new company</Card.Title>
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <label htmlFor="recipient-name" className="col-form-label mt-2">
                 *Company Name:
@@ -144,8 +150,8 @@ const CreateCompany = () => {
               *Required
             </label>
           </Form>
-      </Card.Body>
-    </Card>
+        </Card.Body>
+      </Card>
     </>
   );
 };

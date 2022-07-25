@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { QRCodeCanvas } from "qrcode.react";
-import { AuthContext } from "../context/clientAuth";
+import { AuthContext } from "../context/auth";
 
 import axios from "axios";
 

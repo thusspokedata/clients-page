@@ -1,10 +1,15 @@
 import "./App.css";
 import Header from "./components/Header";
-import SignUp from "./components/Signup";
+import Signup from "./components/Signup";
 import Login from "./components/Login";
+import AdminSignup from "./components/AdminSignup";
+// import CreateCompany from "./components/CreateCompany";
 import ProtectedRoute from "./components/ProtectedRoutes";
+// import AddEmployee from "./components/AddEmployee";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Company from "./pages/Company";
+// import SignupLogin from "./pages/SignupLogin";
 
 function App() {
   return (
@@ -19,7 +24,12 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/admin-signup" element={<AdminSignup />} />
+        
+        {/* <Route path="/signup-login" element={<SignupLogin />} /> */}
+        <Route path="/create-company" element={<Company />} />
+        {/* <Route path="/add-employee" element={<AddEmployee />} /> */}
+        <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<h1>404- Not Found </h1>} />
       </Routes>

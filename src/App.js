@@ -39,7 +39,9 @@ function App() {
         {/* <Route path="/add-employee" element={<AddEmployee />} /> */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="*" element={<h1>404- Not Found </h1>} />
+        
       </Routes>
     </div>
   );

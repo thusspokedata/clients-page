@@ -68,16 +68,13 @@ const Signup = () => {
 
   return (
     <>
-      {/* <section className="mt-5">
-
-      </section>
-      <Button variant="info text-white mx-3 px-5 mt-5" onClick={handleShow}>
+      {/* <Button variant="dark text-white mx-3 px-5 mt-5 rounded-pill" onClick={handleShow}>
         Sign Up
       </Button> */}
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>SignUp</Modal.Title>
+          <Modal.Title className="signupForm fw-bold fs-3">SignUp</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
@@ -164,7 +161,7 @@ const Signup = () => {
             </Form.Group>
             <Modal.Footer>
               <Button
-                variant="info text-white col-6 mx-auto"
+                variant="dark text-white col-6 mx-auto rounded-pill"
                 type="submit"
                 onClick={handleClose}
               >
@@ -173,7 +170,7 @@ const Signup = () => {
             </Modal.Footer>
             <label
               htmlFor="recipient-name"
-              className="col-form-label text-end mt-0 fs-6 fst-italic"
+              className="col-form-label text-end mt-0 fs-7 fst-italic"
             >
               *Required
             </label>

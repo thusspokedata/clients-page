@@ -4,10 +4,7 @@ import QR from "../components/QrCode";
 function Home() {
   return (
     <>
-        <section className="mt-5">
-
-      </section>
-      
+     <h2>hallo</h2>
       <QR />
     </>
   );

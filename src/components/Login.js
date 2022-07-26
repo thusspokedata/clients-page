@@ -12,7 +12,7 @@ const Login = () => {
   // bootstrap
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
   // adding login states
   const [password, setPassword] = useState("");

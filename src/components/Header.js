@@ -23,8 +23,8 @@ function Header() {
           {isLoggedIn ? (
             <>
               <Nav className="me-auto align-items-center">
-                <Nav.Link href="/create-company">Add your restaurant</Nav.Link>
-                <Nav.Link href="/">QR</Nav.Link>
+                <Nav.Link href="/admin-page">Admin Profile</Nav.Link>
+                <Nav.Link href="/qr">QR</Nav.Link>
               </Nav>
               <Nav>
                 <Nav.Link onClick={logoutUser} href="/login">

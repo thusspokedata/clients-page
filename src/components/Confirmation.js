@@ -1,14 +1,15 @@
-import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { AuthContext } from "../context/auth";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-// Bootstrap
+import axios from "axios";
+
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
-const Login = () => {
+const CreatePassword = () => {
+  //   const { confirmationCode } = useParams();
+
   // bootstrap
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
@@ -21,8 +22,6 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const { storeToken, verifyStoredToken } = useContext(AuthContext);
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -30,18 +29,12 @@ const Login = () => {
       email,
       password,
     };
-    // console.log(requestBody);
+    console.log(requestBody);
     axios
-      .post("http://localhost:5005/api/auth/login", requestBody)
+      .put("http://localhost:5005/api/auth/update-password", requestBody)
       .then((response) => {
         console.log(response.data);
-        const token = response.data.authToken;
-        // store the token
-        storeToken(token);
-        verifyStoredToken().then(() => {
-          // redirect to qr page
-          navigate("/qr");
-        });
+        navigate("/login");
       })
       .catch((err) => {
         const errorDescription = err.response.data.message;
@@ -57,13 +50,11 @@ const Login = () => {
 
   return (
     <>
-      {/* <Button variant="dark text-white mx-3 px-5 mt-5 shadow-sm rounded-pill" onClick={handleShow}>
-        Login
-      </Button> */}
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title className="formular fw-bold fs-3">Login</Modal.Title>
+          <Modal.Title className="formular fw-bold fs-3">
+            Please add your user email and create a password
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
@@ -85,7 +76,7 @@ const Login = () => {
               </label>
               <Form.Control
                 type="password"
-                placeholder="Password"
+                placeholder="Create password"
                 name="password"
                 value={password}
                 className="mt-0"
@@ -99,7 +90,7 @@ const Login = () => {
                 type="submit"
                 onClick={handleClose}
               >
-                Login
+                Create Password
               </Button>
             </Modal.Footer>
             <label
@@ -116,4 +107,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default CreatePassword;

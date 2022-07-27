@@ -1,13 +1,12 @@
 import React from "react";
 import QR from "../components/QrCode";
 
-function Home() {
+function Qr() {
   return (
     <>
-     <h2>hallo</h2>
       <QR />
     </>
   );
 }
 
-export default Home;
+export default Qr;

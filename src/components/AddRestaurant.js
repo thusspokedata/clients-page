@@ -45,8 +45,11 @@ const CreateRestaurant = () => {
       tables,
     };
     console.log(requestBody);
+    const storedToken = localStorage.getItem("authToken");
     axios
-      .post("http://localhost:5005/api/restaurants/add-new", requestBody)
+      .post("/api/restaurants/add-new", requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
         //console.log(response);
         navigate("/admin-page");

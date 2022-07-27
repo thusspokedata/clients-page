@@ -40,7 +40,7 @@ const Login = () => {
         storeToken(token);
         verifyStoredToken().then(() => {
           // redirect to qr page
-          navigate("/qr");
+          navigate("/");
         });
       })
       .catch((err) => {
@@ -88,7 +88,7 @@ const Login = () => {
                 placeholder="Password"
                 name="password"
                 value={password}
-                className="mt-0"
+                className="mt-1"
                 onChange={handlePasswordChange}
                 autoFocus
               />

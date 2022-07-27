@@ -69,9 +69,9 @@ const CreateCompany = () => {
 
   return (
     <>
-      <Card style={{ width: "28rem" }} className="m-5" border="info">
+      <Card style={{ width: "28rem" }} className="m-5">
         <Card.Body>
-          <Card.Title>Add new company</Card.Title>
+          <Card.Title className="formular">Add new company</Card.Title>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <label htmlFor="recipient-name" className="col-form-label mt-2">
@@ -136,7 +136,7 @@ const CreateCompany = () => {
             </Form.Group>
             <Modal.Footer>
               <Button
-                variant="info text-white col-6 mx-auto"
+                variant="dark text-white col-6 mx-auto"
                 type="submit"
                 onClick={handleClose}
               >

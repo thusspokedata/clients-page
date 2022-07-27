@@ -103,9 +103,28 @@ h1 {
   background-color: #D9C259;
 }
 
+/* .secondPart {
+  height: 1vh;
+} */
 
+.text1 {
+  color:#8C7D3A;
+  font-family: 'Old Standard TT', serif;
+  font-weight: bolder;
+  font-size: medium;
+}
 
+.text2 {
+  color:#594f21;
+  font-family: 'Old Standard TT', serif;
+  font-weight: light;
+  font-size: 0.7em;
+}
 
+.container {
+  margin-top:30px;
+  margin-bottom: 30px;
+}
 /* src/styles.css */
 /* *,
 *:before,

@@ -103,7 +103,7 @@ const AddEmployee = () => {
                 placeholder="Email"
                 name="email"
                 value={email}
-                className="mt-0"
+                className="mt-1"
                 onChange={handleEmailChange}
                 autoFocus
               />
@@ -121,7 +121,7 @@ const AddEmployee = () => {
             </Form.Group>
             <Modal.Footer>
               <Button
-                variant="info text-white col-6 mx-auto"
+                variant="dark text-white col-6 mx-auto"
                 type="submit"
                 onClick={handleClose}
               >

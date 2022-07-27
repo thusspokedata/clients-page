@@ -77,7 +77,7 @@ const Login = () => {
                 placeholder="Email"
                 name="email"
                 value={email}
-                className="mt-0"
+                className="mt-1"
                 onChange={handleEmailChange}
                 autoFocus
               />
@@ -89,7 +89,7 @@ const Login = () => {
                 placeholder="Password"
                 name="password"
                 value={password}
-                className="mt-0"
+                className="mt-1"
                 onChange={handlePasswordChange}
                 autoFocus
               />

@@ -7,10 +7,7 @@ function Home() {
   return (
     <>
       {/* <QR /> */}
-      <MainPage />
-
-
-
+      {/* <MainPage /> */}
     </>
   );
 }

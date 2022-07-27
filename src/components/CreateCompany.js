@@ -93,7 +93,7 @@ const CreateCompany = () => {
                 placeholder="Email"
                 name="email"
                 value={email}
-                className="mt-0"
+                className="mt-1"
                 onChange={handleEmailChange}
                 autoFocus
               />
@@ -104,7 +104,7 @@ const CreateCompany = () => {
                 type="text"
                 placeholder="address"
                 value={address}
-                className="mt-0"
+                className="mt-1"
                 name="address"
                 onChange={handleAddressChange}
                 autoFocus
@@ -117,7 +117,7 @@ const CreateCompany = () => {
                 placeholder="addressNumber"
                 value={addressNumber}
                 name="addressNumber"
-                className="mt-0"
+                className="mt-1"
                 onChange={handleAddressNumberChange}
                 autoFocus
               />

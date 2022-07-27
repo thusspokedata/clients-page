@@ -99,7 +99,7 @@ const AdminSignup = () => {
                 placeholder="Email"
                 name="email"
                 value={email}
-                className="mt-0"
+                className="mt-1"
                 onChange={handleEmailChange}
                 autoFocus
               />
@@ -111,7 +111,7 @@ const AdminSignup = () => {
                 placeholder="Password"
                 name="password"
                 value={password}
-                className="mt-0"
+                className="mt-1"
                 onChange={handlePasswordChange}
                 autoFocus
               />
@@ -122,7 +122,7 @@ const AdminSignup = () => {
                 type="text"
                 placeholder="address"
                 value={address}
-                className="mt-0"
+                className="mt-1"
                 name="address"
                 onChange={handleAddressChange}
                 autoFocus

@@ -6,7 +6,7 @@ function Qr() {
   return (
     <>
       {/* <QR /> */}
-      <MainPage />
+      {/* <MainPage /> */}
     </>
   );
 }

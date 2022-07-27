@@ -103,7 +103,7 @@ const AddEmployee = () => {
                 placeholder="Email"
                 name="email"
                 value={email}
-                className="mt-0"
+                className="mt-1"
                 onChange={handleEmailChange}
                 autoFocus
               />

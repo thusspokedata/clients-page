@@ -28,10 +28,10 @@ function Header() {
           {isLoggedIn ? (
             <>
               <Nav className="newColor me-auto align-items-center">
-                <Nav.Link className="newColor" href="/create-company">
-                  Add your restaurant
+                <Nav.Link className="newColor" href="/admin-page">
+                  Admin Page
                 </Nav.Link>
-                <Nav.Link className="newColor" href="/">
+                <Nav.Link className="newColor" href="/qr">
                   QR
                 </Nav.Link>
               </Nav>

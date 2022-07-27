@@ -81,7 +81,7 @@ const DeleteAccount = () => {
                 placeholder="Password"
                 name="password"
                 value={password}
-                className="mt-0"
+                className="mt-1"
                 onChange={handlePasswordChange}
                 autoFocus
               />

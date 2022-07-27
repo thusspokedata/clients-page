@@ -40,7 +40,7 @@ const Login = () => {
         storeToken(token);
         verifyStoredToken().then(() => {
           // redirect to qr page
-          navigate("/qr");
+          navigate("/");
         });
       })
       .catch((err) => {

@@ -10,7 +10,7 @@ import Card from "react-bootstrap/Card";
 
 import { AuthContext } from "../context/auth";
 
-const CreateCompany = () => {
+const DeleteAccount = () => {
   // const [userData, setUserData] = useState("");
 
   // bootstrap
@@ -21,12 +21,9 @@ const CreateCompany = () => {
   const { user } = useContext(AuthContext);
   // console.log(`this is the userId: ${user._id}`);
 
-  // adding new company states
-  const [companyname, setCompanyname] = useState("");
+  // deleting account
   const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [addressNumber, setAddressNumber] = useState("");
-  const [city, setCity] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -35,56 +32,35 @@ const CreateCompany = () => {
     event.preventDefault();
 
     const requestBody = {
-      companyname,
       email,
-      address,
-      addressNumber,
-      city,
-      adminResto: user._id,
+      password,
     };
     console.log(requestBody);
     axios
-      .post("http://localhost:5005/api/company/add-new", requestBody)
+      .post("http://localhost:5005/api/restaurants/delete-account", requestBody)
       .then((response) => {
         //console.log(response);
-        navigate("/create-company");
+        navigate("/");
       })
       .catch((err) => {
         const errorDescription = err.response.data.message;
         setErrorMessage(errorDescription);
       });
 
-    setCompanyname("");
     setEmail("");
-    setAddress("");
-    setAddressNumber("");
-    setCity("");
+    setPassword("");
   };
 
-  const handleCompanynameChange = (e) => setCompanyname(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
-  const handleAddressChange = (e) => setAddress(e.target.value);
-  const handleAddressNumberChange = (e) => setAddressNumber(e.target.value);
-  const handleCityChange = (e) => setCity(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
 
   return (
     <>
-      <Card style={{ width: "28rem" }} className="m-5">
+      <Card style={{ width: "28rem" }} className="m-5" border="danger">
         <Card.Body>
-          <Card.Title className="formular">Add new company</Card.Title>
+          <Card.Title>Delete account</Card.Title>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <label htmlFor="recipient-name" className="col-form-label mt-2">
-                *Company Name:
-              </label>
-              <Form.Control
-                type="text"
-                placeholder="Company name"
-                name="companyname"
-                value={companyname}
-                autoFocus
-                onChange={handleCompanynameChange}
-              />
               <label htmlFor="recipient-name" className="col-form-label mt-2">
                 *Email:
               </label>
@@ -98,45 +74,21 @@ const CreateCompany = () => {
                 autoFocus
               />
               <label htmlFor="recipient-name" className="col-form-label mt-2">
-                Address:
+                *Password:
               </label>
               <Form.Control
-                type="text"
-                placeholder="address"
-                value={address}
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
                 className="mt-0"
-                name="address"
-                onChange={handleAddressChange}
-                autoFocus
-              />
-              <label htmlFor="recipient-name" className="col-form-label mt-2">
-                Number:
-              </label>
-              <Form.Control
-                type="text"
-                placeholder="addressNumber"
-                value={addressNumber}
-                name="addressNumber"
-                className="mt-0"
-                onChange={handleAddressNumberChange}
-                autoFocus
-              />
-              <label htmlFor="recipient-name" className="col-form-label mt-2">
-                City:
-              </label>
-              <Form.Control
-                type="text"
-                placeholder="City"
-                value={city}
-                className=""
-                name="city"
-                onChange={handleCityChange}
+                onChange={handlePasswordChange}
                 autoFocus
               />
             </Form.Group>
             <Modal.Footer>
               <Button
-                variant="dark text-white col-6 mx-auto"
+                variant="danger text-white col-6 mx-auto"
                 type="submit"
                 onClick={handleClose}
               >
@@ -156,4 +108,4 @@ const CreateCompany = () => {
   );
 };
 
-export default CreateCompany;
+export default DeleteAccount;

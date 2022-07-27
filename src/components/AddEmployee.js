@@ -23,7 +23,7 @@ const AddEmployee = () => {
   const navigate = useNavigate();
 
   const { user } = useContext(AuthContext);
-  console.log(`this is the userId: ${user._id}`);
+  //console.log(`this is the userId: ${user._id}`);
 
   let userRoles = ["admin", "waiter", "cooker"];
   const roles = userRoles.map((userrole, i) => {
@@ -58,10 +58,10 @@ const AddEmployee = () => {
 
     console.log(requestBody);
     axios
-      .post("http://localhost:5005/api/auth/signup", requestBody)
+      .post("http://localhost:5005/api/auth/signupEmp", requestBody)
       .then((response) => {
         //console.log(response);
-        navigate("/create-company");
+        navigate("/admin-page");
       })
       .catch((err) => {
         const errorDescription = err.response.data.message;
@@ -79,9 +79,9 @@ const AddEmployee = () => {
 
   return (
     <>
-      <Card style={{ width: "28rem" }} className="m-5" border="info">
+      <Card style={{ width: "28rem" }} className="m-5">
         <Card.Body>
-          <Card.Title>Add a employee</Card.Title>
+          <Card.Title className="addEmployee ">Add a employee</Card.Title>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <label htmlFor="recipient-name" className="col-form-label mt-2">
@@ -111,7 +111,7 @@ const AddEmployee = () => {
                 Please choose an employee role
               </label>
               <select
-                className="m-2 btn btn-info btn-sm text-white"
+                className="m-2 btn btn-dark btn-sm text-white"
                 name="role"
                 id="role-select"
                 onChange={handleRoleChange}

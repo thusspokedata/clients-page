@@ -97,6 +97,13 @@ h1 {
   font-size: large;
 }
 
+.addEmployee {
+  color:#8C7D3A;
+  font-family: 'Old Standard TT', serif;
+  font-weight: bold;
+  font-size: large;
+}
+
  /* Logo - main page */
 
 .newColor {

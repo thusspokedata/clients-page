@@ -2,8 +2,7 @@ import React from "react";
 import QR from "../components/QrCode";
 import MainPage from "../components/MainPage";
 
-
-function Home() {
+function Qr() {
   return (
     <>
       {/* <QR /> */}
@@ -12,4 +11,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Qr;

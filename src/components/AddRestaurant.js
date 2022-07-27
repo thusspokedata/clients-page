@@ -73,7 +73,7 @@ const CreateRestaurant = () => {
 
   return (
     <>
-      <Card style={{ width: "28rem" }} className="m-5" border="info">
+      <Card style={{ width: "28rem" }} className="m-5">
         <Card.Body>
           <Card.Title>Add new restaurant</Card.Title>
           <Form onSubmit={handleSubmit}>
@@ -175,7 +175,7 @@ const CreateRestaurant = () => {
             </Form.Group>
             <Modal.Footer>
               <Button
-                variant="info text-white col-6 mx-auto"
+                variant="dark text-white col-6 mx-auto"
                 type="submit"
                 onClick={handleClose}
               >

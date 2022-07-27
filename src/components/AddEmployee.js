@@ -79,9 +79,9 @@ const AddEmployee = () => {
 
   return (
     <>
-      <Card style={{ width: "28rem" }} className="m-5" border="info">
+      <Card style={{ width: "28rem" }} className="m-5">
         <Card.Body>
-          <Card.Title>Add an employee</Card.Title>
+          <Card.Title className="addEmployee ">Add a employee</Card.Title>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <label htmlFor="recipient-name" className="col-form-label mt-2">
@@ -111,7 +111,7 @@ const AddEmployee = () => {
                 Please choose an employee role
               </label>
               <select
-                className="m-2 btn btn-info btn-sm text-white"
+                className="m-2 btn btn-dark btn-sm text-white"
                 name="role"
                 id="role-select"
                 onChange={handleRoleChange}
@@ -121,7 +121,7 @@ const AddEmployee = () => {
             </Form.Group>
             <Modal.Footer>
               <Button
-                variant="info text-white col-6 mx-auto"
+                variant="dark text-white col-6 mx-auto"
                 type="submit"
                 onClick={handleClose}
               >

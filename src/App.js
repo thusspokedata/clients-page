@@ -11,19 +11,20 @@ import Home from "./pages/Home";
 import Company from "./pages/Company";
 // import SignupLogin from "./pages/SignupLogin";
 
+
 function App() {
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route
+        {/* <Route
           path="/"
           element={
             <ProtectedRoute redirectTo="/login">
               <Home />
             </ProtectedRoute>
           }
-        />
+        /> */}
         <Route
           path="/create-company"
           element={
@@ -39,7 +40,8 @@ function App() {
         {/* <Route path="/add-employee" element={<AddEmployee />} /> */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/Home" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        
         <Route path="*" element={<h1>404- Not Found </h1>} />
         
       </Routes>

@@ -58,7 +58,10 @@ const AddEmployee = () => {
 
     console.log(requestBody);
     axios
-      .post("http://localhost:5005/api/auth/signupEmp", requestBody)
+      .post(
+        "https://foodstrap-berlin.herokuapp.com/api/auth/signupEmp",
+        requestBody
+      )
       .then((response) => {
         //console.log(response);
         navigate("/admin-page");

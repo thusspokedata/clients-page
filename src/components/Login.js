@@ -32,7 +32,10 @@ const Login = () => {
     };
     // console.log(requestBody);
     axios
-      .post("http://localhost:5005/api/auth/login", requestBody)
+      .post(
+        "https://foodstrap-berlin.herokuapp.com/api/auth/login",
+        requestBody
+      )
       .then((response) => {
         console.log(response.data);
         const token = response.data.authToken;

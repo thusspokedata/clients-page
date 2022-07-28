@@ -23,7 +23,7 @@ const AdminSignup = () => {
   const [city, setCity] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
-  const navigate = useNavigate() 
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,9 +35,12 @@ const AdminSignup = () => {
       addressNumber,
       city,
       role: "admin",
-    }
+    };
     axios
-      .post("http://localhost:5005/api/auth/signup", requestBody)
+      .post(
+        "https://foodstrap-berlin.herokuapp.com/api/auth/signup",
+        requestBody
+      )
       .then((response) => {
         navigate("/signup-login");
       })
@@ -63,12 +66,8 @@ const AdminSignup = () => {
 
   return (
     <>
-     <section className="mt-5">
-
-      </section>
-      <section className="mt-5">
-
-      </section>
+      <section className="mt-5"></section>
+      <section className="mt-5"></section>
       {/* <Button variant="info text-white mx-3 px-5" onClick={handleShow}>
         Sign Up
       </Button> */}

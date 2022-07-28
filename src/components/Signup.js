@@ -39,7 +39,10 @@ const Signup = () => {
       role,
     };
     axios
-      .post("http://localhost:5005/api/auth/signup", requestBody)
+      .post(
+        "https://foodstrap-berlin.herokuapp.com/api/auth/signup",
+        requestBody
+      )
       .then((response) => {
         //console.log(response);
         navigate("/login");

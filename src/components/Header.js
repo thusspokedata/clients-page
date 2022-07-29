@@ -8,32 +8,40 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 function Header() {
-  const { isLoggedIn, logoutUser } = useContext(AuthContext);
+  const { isLoggedIn, logoutUser, user } = useContext(AuthContext);
   return (
     <Navbar
       collapseOnSelect
       expand="lg"
       fixed="sticky-top"
-      className="newColor p-3 navbar-custom"
+      className="newColor p-0 navbar-custom"
     >
-      <Container className="newColor">
-        <Navbar.Brand className="newColor" href="/">
+      <Container className="newColor p-0">
+        <Navbar.Brand className="newColor p-0" href="/">
           ClientsPage
         </Navbar.Brand>
         <Navbar.Toggle
           className="newColor"
           aria-controls="responsive-navbar-nav"
         />
-        <Navbar.Collapse className="newColor" id="responsive-navbar-nav">
+        <Navbar.Collapse className="newColor p-0" id="responsive-navbar-nav">
           {isLoggedIn ? (
             <>
-              <Nav className="newColor me-auto align-items-center">
-                <Nav.Link className="newColor" href="/admin-page">
-                  Admin Page
-                </Nav.Link>
-                <Nav.Link className="newColor" href="/qr">
-                  QR
-                </Nav.Link>
+              <Nav className="newColor me-auto  align-items-center">
+                {user.role === "admin" ? (
+                  <>
+                    <Nav.Link className="newColor" href="/admin-page">
+                      Admin Page
+                    </Nav.Link>
+                    <Nav.Link className="newColor" href="/qr">
+                      QR
+                    </Nav.Link>
+                  </>
+                ) : (
+                  <Nav.Link className="newColor" href="/qr">
+                    QR
+                  </Nav.Link>
+                )}
               </Nav>
               <Nav>
                 <Nav.Link

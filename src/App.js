@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import MainPage from "./components/MainPage";
 import AdminSignup from "./components/AdminSignup";
 import ProtectedRoute from "./components/ProtectedRoutes";
+import ProtectedAdminRoute from "./components/ProtectedAdminRoutes";
 // import AddEmployee from "./components/AddEmployee";
 import { Routes, Route } from "react-router-dom";
 import Qr from "./pages/QR";
@@ -25,8 +26,15 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/admin-page"
+          element={
+            <ProtectedRoute redirectTo="/login">
+              <AdminPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/confirm/:confirmCode" element={<ConfirmationPage />} />
-        <Route path="/admin-page" element={<AdminPage />} />
         <Route path="/" element={<MainPage />} />
         <Route path="/admin-signup" element={<AdminSignup />} />
         <Route path="/signup" element={<Signup />} />

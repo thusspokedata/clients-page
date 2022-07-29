@@ -39,6 +39,7 @@ const DeleteAccount = () => {
     axios
       .post(
         "https://foodstrap-berlin.herokuapp.com/api/restaurants/delete-account",
+        // "/api/auth/delete-account",
         requestBody
       )
       .then((response) => {
@@ -61,7 +62,7 @@ const DeleteAccount = () => {
     <>
       <Card style={{ width: "28rem" }} className="m-5" border="danger">
         <Card.Body>
-          <Card.Title>Delete account</Card.Title>
+          <Card.Title className="titleCard">Delete account</Card.Title>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <label htmlFor="recipient-name" className="col-form-label mt-2">

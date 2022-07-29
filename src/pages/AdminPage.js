@@ -1,6 +1,7 @@
 import React from "react";
 import AddRestaurant from "../components/AddRestaurant";
 import AddEmployee from "../components/AddEmployee";
+import AddProduct from "../components/AddProduct";
 import DeleteAccount from "../components/DeleteAccount";
 
 function AdminPage() {
@@ -14,7 +15,10 @@ function AdminPage() {
           <div className="col-12 col-sm-6">
             <AddEmployee />
           </div>
-          <div>
+          <div className="col-12 col-sm-6">
+            <AddProduct />
+          </div>
+          <div className="col-12 col-sm-6">
             <DeleteAccount />
           </div>
         </div>

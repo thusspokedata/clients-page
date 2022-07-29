@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Belleza&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Belleza&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap");
 
 /* font-family: 'Bebas Neue', cursive;
 font-family: 'Belleza', sans-serif;
@@ -8,12 +8,11 @@ font-family: 'Old Standard TT', serif; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #FDF4E7;
+  background-color: #fdf4e7;
 }
 
-.App {
+/* .App {
   text-align: center;
- 
 }
 
 .App-logo {
@@ -25,9 +24,9 @@ font-family: 'Old Standard TT', serif; */
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -40,74 +39,71 @@ font-family: 'Old Standard TT', serif; */
 
 .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
-
+} */
 
 h1 {
   font-family: bebas neue;
   font-size: large;
   text-align: center;
-  color: #888C41
+  color: #888c41;
 }
-
 
 /* Modify the background color */
 .navbar-custom {
-	background-color: #D9C259;
-  color: #888C41;
-  font-family: 'Old Standard TT', serif;;
+  background-color: #d9c259;
+  color: #888c41;
+  font-family: "Old Standard TT", serif;
 }
 
 .navbar-brand {
-  font-family: 'Old Standard TT', serif;
-  color: #888C41;
+  font-family: "Old Standard TT", serif;
+  color: #888c41;
 }
 
 .formular {
-  color:#8C7D3A;
-  font-family: 'Old Standard TT', serif;
+  color: #8c7d3a;
+  font-family: "Old Standard TT", serif;
   font-weight: bold;
   font-size: large;
 }
 
 .mb-3 {
-  color:#8C6856;
-  font-family: 'Old Standard TT', serif;
-  
+  color: #8c6856;
+  font-family: "Old Standard TT", serif;
 }
 
 .col-form-label {
-  color:#8C6856;
-  font-family: 'Old Standard TT', serif;
+  color: #8c6856;
+  font-family: "Old Standard TT", serif;
 }
 
 .signupForm {
-  color:#8C7D3A;
-  font-family: 'Old Standard TT', serif;
+  color: #8c7d3a;
+  font-family: "Old Standard TT", serif;
   font-weight: bold;
   font-size: large;
 }
 
-.addEmployee {
-  color:#8C7D3A;
-  font-family: 'Old Standard TT', serif;
+.titleCard {
+  color: #8c7d3a;
+  font-family: "Old Standard TT", serif;
   font-weight: bold;
   font-size: large;
 }
 
- /* Logo - main page */
+/* Logo - main page */
 
 .newColor {
-  background-color: #D9C259;
+  background-color: #d9c259;
 }
 
 /* .secondPart {
@@ -115,23 +111,27 @@ h1 {
 } */
 
 .text1 {
-  color:#8C7D3A;
-  font-family: 'Old Standard TT', serif;
+  color: #8c7d3a;
+  font-family: "Old Standard TT", serif;
   font-weight: bolder;
   font-size: medium;
 }
 
 .text2 {
-  color:#594f21;
-  font-family: 'Old Standard TT', serif;
+  color: #594f21;
+  font-family: "Old Standard TT", serif;
   font-weight: light;
   font-size: 0.7em;
 }
 
 .container {
-  margin-top:30px;
+  margin-top: 30px;
   margin-bottom: 30px;
 }
+
+/* .qr-size {
+  height: 20px;
+} */
 /* src/styles.css */
 /* *,
 *:before,

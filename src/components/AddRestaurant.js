@@ -47,9 +47,13 @@ const CreateRestaurant = () => {
     console.log(requestBody);
     const storedToken = localStorage.getItem("authToken");
     axios
-      .post("/api/restaurants/add-new", requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .post(
+        "https://foodstrap-berlin.herokuapp.com/api/restaurants/add-new",
+        requestBody,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      )
       .then((response) => {
         //console.log(response);
         navigate("/admin-page");
@@ -78,9 +82,12 @@ const CreateRestaurant = () => {
     <>
       <Card style={{ width: "28rem" }} className="m-5">
         <Card.Body>
-          <Card.Title>Add new restaurant</Card.Title>
+          <Card.Title className="titleCard">Add new restaurant</Card.Title>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group
+              className="mb-3 col-form-label"
+              controlId="exampleForm.ControlInput1"
+            >
               <label htmlFor="recipient-name" className="col-form-label mt-2">
                 *Restaurant Name:
               </label>

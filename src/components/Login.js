@@ -34,6 +34,7 @@ const Login = () => {
     axios
       .post(
         "https://foodstrap-berlin.herokuapp.com/api/auth/login",
+        // "/api/auth/login",
         requestBody
       )
       .then((response) => {

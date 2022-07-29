@@ -23,7 +23,7 @@ const AddEmployee = () => {
   const navigate = useNavigate();
 
   const { user } = useContext(AuthContext);
-  //console.log(`this is the userId: ${user._id}`);
+  console.log(`this is the userRole: ${user._id}`);
 
   let userRoles = ["admin", "waiter", "cooker"];
   const roles = userRoles.map((userrole, i) => {
@@ -60,6 +60,7 @@ const AddEmployee = () => {
     axios
       .post(
         "https://foodstrap-berlin.herokuapp.com/api/auth/signupEmp",
+        // "/api/auth/signupEmp",
         requestBody
       )
       .then((response) => {
@@ -84,7 +85,7 @@ const AddEmployee = () => {
     <>
       <Card style={{ width: "28rem" }} className="m-5">
         <Card.Body>
-          <Card.Title className="addEmployee ">Add a employee</Card.Title>
+          <Card.Title className="titleCard ">Add an employee</Card.Title>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <label htmlFor="recipient-name" className="col-form-label mt-2">

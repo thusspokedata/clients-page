@@ -1,19 +1,19 @@
 import React from "react";
 import foto from "../Assets/instagram_profile_image.png";
-import foto2 from "../Assets/instagram_profile_image.png";
+import foto2 from "../Assets/qr.png";
 
 function MainPage() {
   return (
     <>
-      <div className="container">
-        <div className="row d-flex align-items-center justify-content-center">
-          <div className="col-5 firstContainer">
-            <img src={foto} alt="foto" className="logo" class="img-fluid" />
+      <div className="container p-0">
+        <div className="row p-0 d-flex align-items-center justify-content-center">
+          <div className="col-5 p-0 firstContainer">
+            <img src={foto} alt="foto" className="logo img-fluid" />
           </div>
         </div>
       </div>
 
-      <div className="text1 mt-4 d-flex align-items-center justify-content-center">
+      <div className="text1 p-0 d-flex align-items-center justify-content-center">
         <h2 className="col-5">
           Create a profile and get the discounts you deserve for being a loyal
           customer
@@ -22,12 +22,11 @@ function MainPage() {
 
       <div className="container">
         <div className="row">
-          <div className="col-12 col-sm-6">
+          <div className="col-12 col-sm-6 d-flex align-items-center justify-content-center">
             <img
-              src={foto}
+              src={foto2}
               alt="foto"
-              className="logo col-10"
-              class="img-fluid"
+              className="logo col-6 img-fluid qr-size"
             />
           </div>
 

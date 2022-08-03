@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth";
-
+// Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -20,8 +20,6 @@ const AddProduct = () => {
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [adminResto, setAdminResto] = useState("");
-
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -55,17 +53,19 @@ const AddProduct = () => {
       productType,
       category,
       description,
-      adminResto,
       price,
       adminResto: user._id,
     };
-
-    console.log(requestBody);
+    // console.log(requestBody);
+    const storedToken = localStorage.getItem("authToken");
     axios
       .post(
-        "https://foodstrap-berlin.herokuapp.com/api/products/add-new",
-        // "/api/products/add-new",
-        requestBody
+        // "https://foodstrap-berlin.herokuapp.com/api/products/add-new",
+        "/api/products/add-new",
+        requestBody,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
       )
       .then((response) => {
         //console.log(response);
@@ -80,7 +80,6 @@ const AddProduct = () => {
     setProductType("");
     setCategory("");
     setDescription("");
-    setAdminResto("");
     setPrice("");
   };
 
@@ -96,14 +95,14 @@ const AddProduct = () => {
         <Card.Body>
           <Card.Title className="titleCard ">Add a new product</Card.Title>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3">
               <label htmlFor="recipient-name" className="col-form-label mt-2">
                 *Product:
               </label>
               <Form.Control
                 type="text"
-                placeholder="Username"
-                name="username"
+                placeholder="Product"
+                name="productName"
                 value={productName}
                 autoFocus
                 onChange={handleProductNameChange}
@@ -166,7 +165,7 @@ const AddProduct = () => {
               htmlFor="recipient-name"
               className="col-form-label text-end mt-0 fs-6 fst-italic"
             >
-              *Required
+              <small>*Required</small>
             </label>
           </Form>
         </Card.Body>

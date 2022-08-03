@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../context/auth";
+import Swal from "sweetalert2";
 
+// Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
-const CreatePassword = () => {
-  //   const { confirmationCode } = useParams();
-
+const Login = () => {
   // bootstrap
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
 
   // adding login states
   const [password, setPassword] = useState("");
@@ -22,6 +21,8 @@ const CreatePassword = () => {
 
   const navigate = useNavigate();
 
+  const { storeToken, verifyStoredToken } = useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -29,16 +30,22 @@ const CreatePassword = () => {
       email,
       password,
     };
-    console.log(requestBody);
     axios
-      .put(
-        "https://foodstrap-berlin.herokuapp.com/api/auth/update-password",
-        // "/api/auth/update-password",
+      .post(
+        // "https://foodstrap-berlin.herokuapp.com/api/auth/login",
+        "/api/auth/login",
         requestBody
       )
       .then((response) => {
         console.log(response.data);
-        navigate("/login");
+        const token = response.data.authToken;
+        // store the token
+        Swal.fire("You are loged in");
+        storeToken(token);
+        verifyStoredToken().then(() => {
+          // redirect to qr page
+          navigate("/");
+        });
       })
       .catch((err) => {
         const errorDescription = err.response.data.message;
@@ -56,9 +63,7 @@ const CreatePassword = () => {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title className="formular fw-bold fs-3">
-            Please add your user email and create a password
-          </Modal.Title>
+          <Modal.Title className="formular fw-bold fs-3">Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
@@ -71,7 +76,7 @@ const CreatePassword = () => {
                 placeholder="Email"
                 name="email"
                 value={email}
-                className="mt-0"
+                className="mt-1"
                 onChange={handleEmailChange}
                 autoFocus
               />
@@ -80,10 +85,10 @@ const CreatePassword = () => {
               </label>
               <Form.Control
                 type="password"
-                placeholder="Create password"
+                placeholder="Password"
                 name="password"
                 value={password}
-                className="mt-0"
+                className="mt-1"
                 onChange={handlePasswordChange}
                 autoFocus
               />
@@ -94,14 +99,14 @@ const CreatePassword = () => {
                 type="submit"
                 onClick={handleClose}
               >
-                Create Password
+                Login
               </Button>
             </Modal.Footer>
             <label
               htmlFor="recipient-name"
               className="col-form-label text-end mt-0 fs-6 fst-italic"
             >
-              *Required
+              <small>*Required</small>
             </label>
           </Form>
         </Modal.Body>
@@ -111,4 +116,4 @@ const CreatePassword = () => {
   );
 };
 
-export default CreatePassword;
+export default Login;

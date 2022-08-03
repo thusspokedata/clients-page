@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth";
-
+// Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -59,8 +59,8 @@ const AddEmployee = () => {
     console.log(requestBody);
     axios
       .post(
-        "https://foodstrap-berlin.herokuapp.com/api/auth/signupEmp",
-        // "/api/auth/signupEmp",
+        // "https://foodstrap-berlin.herokuapp.com/api/auth/signupEmp",
+        "/api/auth/signupEmp",
         requestBody
       )
       .then((response) => {
@@ -87,7 +87,7 @@ const AddEmployee = () => {
         <Card.Body>
           <Card.Title className="titleCard ">Add an employee</Card.Title>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3">
               <label htmlFor="recipient-name" className="col-form-label mt-2">
                 *Username:
               </label>
@@ -136,7 +136,7 @@ const AddEmployee = () => {
               htmlFor="recipient-name"
               className="col-form-label text-end mt-0 fs-6 fst-italic"
             >
-              *Required
+              <small>*Required</small>
             </label>
           </Form>
         </Card.Body>

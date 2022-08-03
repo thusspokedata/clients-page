@@ -1,9 +1,8 @@
 import "./App.css";
 import Header from "./components/Header";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
-import MainPage from "./components/MainPage";
-import AdminSignup from "./components/AdminSignup";
+import Signup from "./auth/Signup";
+import Login from "./auth/Login";
+import AdminSignup from "./auth/AdminSignup";
 import ProtectedRoute from "./components/ProtectedRoutes";
 import ProtectedAdminRoute from "./components/ProtectedAdminRoutes";
 // import AddEmployee from "./components/AddEmployee";
@@ -11,6 +10,7 @@ import { Routes, Route } from "react-router-dom";
 import Qr from "./pages/QR";
 import AdminPage from "./pages/AdminPage";
 import ConfirmationPage from "./pages/ConfirmationPage";
+import MainPage from "./pages/MainPage";
 // import SignupLogin from "./pages/SignupLogin";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Route
           path="/qr"
           element={
-            <ProtectedRoute redirectTo="/login">
+            <ProtectedRoute redirectTo="/">
               <Qr />
             </ProtectedRoute>
           }
@@ -29,7 +29,7 @@ function App() {
         <Route
           path="/admin-page"
           element={
-            <ProtectedRoute redirectTo="/login">
+            <ProtectedRoute redirectTo="/">
               <AdminPage />
             </ProtectedRoute>
           }

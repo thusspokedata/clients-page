@@ -1,25 +1,23 @@
 import React from "react";
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
-const Signup = () => {
+const AdminSignup = () => {
   // bootstrap
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
 
   // adding newbeer states
-  const [username, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
-  const [role, setRole] = useState("client");
   const [addressNumber, setAddressNumber] = useState("");
   const [city, setCity] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -28,7 +26,6 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const requestBody = {
       username,
       password,
@@ -36,49 +33,48 @@ const Signup = () => {
       address,
       addressNumber,
       city,
-      role,
+      role: "admin",
     };
     axios
       .post(
-        "https://foodstrap-berlin.herokuapp.com/api/auth/signup",
-        // "/api/auth/signup",
+        // "https://foodstrap-berlin.herokuapp.com/api/auth/signup",
+        "/api/auth/signup",
         requestBody
       )
       .then((response) => {
-        //console.log(response);
-        navigate("/login");
+        navigate("/signup-login");
       })
       .catch((err) => {
         const errorDescription = err.response.data.message;
         setErrorMessage(errorDescription);
       });
 
-    setName("");
+    setUsername("");
     setPassword("");
     setEmail("");
     setAddress("");
     setAddressNumber("");
     setCity("");
-    setRole("");
   };
 
-  const handleUsernameChange = (e) => setName(e.target.value);
+  const handleUsernameChange = (e) => setUsername(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleAddressChange = (e) => setAddress(e.target.value);
   const handleAddressNumberChange = (e) => setAddressNumber(e.target.value);
   const handleCityChange = (e) => setCity(e.target.value);
-  const handletoAdminChange = (e) => setRole(e.target.value);
 
   return (
     <>
-      {/* <Button variant="dark text-white mx-3 px-5 mt-5 rounded-pill" onClick={handleShow}>
+      <section className="mt-5"></section>
+      <section className="mt-5"></section>
+      {/* <Button variant="info text-white mx-3 px-5" onClick={handleShow}>
         Sign Up
       </Button> */}
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title className="signupForm fw-bold fs-3">SignUp</Modal.Title>
+          <Modal.Title>SignUp</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
@@ -138,7 +134,7 @@ const Signup = () => {
                 placeholder="addressNumber"
                 value={addressNumber}
                 name="addressNumber"
-                className="mt-1"
+                className="mt-0"
                 onChange={handleAddressNumberChange}
                 autoFocus
               />
@@ -155,17 +151,9 @@ const Signup = () => {
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check
-                type="checkbox"
-                label="Do you want to add your restaurant?"
-                onChange={handletoAdminChange}
-                value={"admin"}
-              />
-            </Form.Group>
             <Modal.Footer>
               <Button
-                variant="dark text-white col-6 mx-auto rounded-pill"
+                variant="info text-white col-6 mx-auto"
                 type="submit"
                 onClick={handleClose}
               >
@@ -174,7 +162,7 @@ const Signup = () => {
             </Modal.Footer>
             <label
               htmlFor="recipient-name"
-              className="col-form-label text-end mt-0 fs-7 fst-italic"
+              className="col-form-label text-end mt-0 fs-6 fst-italic"
             >
               *Required
             </label>
@@ -186,4 +174,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default AdminSignup;

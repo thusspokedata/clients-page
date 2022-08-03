@@ -16,9 +16,9 @@ function Header() {
       fixed="sticky-top"
       className="newColor p-0 navbar-custom"
     >
-      <Container className="newColor p-0">
+      <Container className="newColor py-0">
         <Navbar.Brand className="newColor p-0" href="/">
-          ClientsPage
+          Foodstrap
         </Navbar.Brand>
         <Navbar.Toggle
           className="newColor"

@@ -12,8 +12,8 @@ const QrCode = () => {
 
   useEffect(() => {
     axios
-      .get(`https://foodstrap-berlin.herokuapp.com/api/auth/${user._id}`)
-      // .get(`/api/auth/${user._id}`)
+      // .get(`https://foodstrap-berlin.herokuapp.com/api/auth/${user._id}`)
+      .get(`/api/auth/${user._id}`)
       .then((response) => {
         console.log(response);
         setUserData(response.data);

@@ -1,29 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import Card from "react-bootstrap/Card";
 
-import { AuthContext } from "../context/auth";
-
-const DeleteAccount = () => {
-  // const [userData, setUserData] = useState("");
-
+const CreatePassword = () => {
   // bootstrap
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
-  //   const handleShow = () => setShow(true);
 
-  const { user } = useContext(AuthContext);
-  // console.log(`this is the userId: ${user._id}`);
-
-  // deleting account
-  const [email, setEmail] = useState("");
+  // adding login states
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -37,22 +28,22 @@ const DeleteAccount = () => {
     };
     console.log(requestBody);
     axios
-      .post(
-        "https://foodstrap-berlin.herokuapp.com/api/restaurants/delete-account",
-        // "/api/auth/delete-account",
+      .put(
+        // "https://foodstrap-berlin.herokuapp.com/api/auth/update-password",
+        "/api/auth/update-password",
         requestBody
       )
       .then((response) => {
-        //console.log(response);
-        navigate("/");
+        console.log(response.data);
+        navigate("/login");
       })
       .catch((err) => {
         const errorDescription = err.response.data.message;
         setErrorMessage(errorDescription);
       });
 
-    setEmail("");
     setPassword("");
+    setEmail("");
   };
 
   const handleEmailChange = (e) => setEmail(e.target.value);
@@ -60,9 +51,13 @@ const DeleteAccount = () => {
 
   return (
     <>
-      <Card style={{ width: "28rem" }} className="m-5" border="danger">
-        <Card.Body>
-          <Card.Title className="titleCard">Delete account</Card.Title>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title className="formular fw-bold fs-3">
+            Please add your user email and create a password
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <label htmlFor="recipient-name" className="col-form-label mt-2">
@@ -82,21 +77,21 @@ const DeleteAccount = () => {
               </label>
               <Form.Control
                 type="password"
-                placeholder="Password"
+                placeholder="Create password"
                 name="password"
                 value={password}
-                className="mt-1"
+                className="mt-0"
                 onChange={handlePasswordChange}
                 autoFocus
               />
             </Form.Group>
             <Modal.Footer>
               <Button
-                variant="danger text-white col-6 mx-auto"
+                variant="dark text-white col-6 mx-auto border-0 rounded-pill"
                 type="submit"
                 onClick={handleClose}
               >
-                Save Changes
+                Create Password
               </Button>
             </Modal.Footer>
             <label
@@ -106,10 +101,11 @@ const DeleteAccount = () => {
               *Required
             </label>
           </Form>
-        </Card.Body>
-      </Card>
+        </Modal.Body>
+      </Modal>
+      {errorMessage && <h5>{errorMessage}</h5>}
     </>
   );
 };
 
-export default DeleteAccount;
+export default CreatePassword;

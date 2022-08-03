@@ -2,7 +2,7 @@ import React from "react";
 import AddRestaurant from "../components/AddRestaurant";
 import AddEmployee from "../components/AddEmployee";
 import AddProduct from "../components/AddProduct";
-import DeleteAccount from "../components/DeleteAccount";
+import DeleteAccount from "../auth/DeleteAccount";
 
 function AdminPage() {
   return (

@@ -5,8 +5,8 @@ import foto2 from "../Assets/qr.png";
 function MainPage() {
   return (
     <>
-      <div className="container p-0">
-        <div className="row p-0 d-flex align-items-center justify-content-center">
+      <div className="container my-0">
+        <div className="row py-0 d-flex align-items-center justify-content-center">
           <div className="col-5 p-0 firstContainer">
             <img src={foto} alt="foto" className="logo img-fluid" />
           </div>
@@ -20,13 +20,13 @@ function MainPage() {
         </h2>
       </div>
 
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-sm-6 d-flex align-items-center justify-content-center">
+      <div className="container my-0 d-flex align-items-center justify-content-center">
+        <div className="row col-10 d-flex align-items-center justify-content-center">
+          <div className="col-12 col-sm-4 ">
             <img
               src={foto2}
               alt="foto"
-              className="logo col-6 img-fluid qr-size"
+              className="logo col-12 col-sm-6 img-fluid qr-size"
             />
           </div>
 

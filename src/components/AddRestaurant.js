@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 import { useNavigate } from "react-router-dom";
 
+// Bootstrap
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -19,7 +21,6 @@ const CreateRestaurant = () => {
   //   const handleShow = () => setShow(true);
 
   const { user } = useContext(AuthContext);
-  // console.log(`this is the userId: ${user._id}`);
 
   // adding new restaurant states
   const [restoName, setRestoName] = useState("");
@@ -28,35 +29,48 @@ const CreateRestaurant = () => {
   const [addressNumber, setAddressNumber] = useState("");
   const [city, setCity] = useState("");
   const [tables, setTables] = useState(0);
+  const [image, setImage] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const requestBody = {
-      restoName,
-      email,
-      address,
-      addressNumber,
-      city,
-      adminResto: user._id,
-      tables,
-    };
-    console.log(requestBody);
-    const storedToken = localStorage.getItem("authToken");
-    axios
-      .post(
-        "https://foodstrap-berlin.herokuapp.com/api/restaurants/add-new",
-        requestBody,
-        {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        }
-      )
-      .then((response) => {
-        //console.log(response);
-        navigate("/admin-page");
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "final-project");
+    data.append("cloud_name", "thusspokedata");
+    fetch("https://api.cloudinary.com/v1_1/thusspokedata/image/upload", {
+      method: "post",
+      body: data,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const requestBody = {
+          restoName,
+          email,
+          address,
+          addressNumber,
+          city,
+          adminResto: user._id,
+          tables,
+          imageUrl: data.url,
+        };
+        const storedToken = localStorage.getItem("authToken");
+        axios
+          .post(
+            // "https://foodstrap-berlin.herokuapp.com/api/restaurants/add-new",
+            "/api/restaurants/add-new",
+            requestBody,
+            {
+              headers: { Authorization: `Bearer ${storedToken}` },
+            }
+          )
+          .then((response) => {
+            Swal.fire("Restaurant added");
+            //console.log(response);
+            navigate("/admin-page");
+          });
       })
       .catch((err) => {
         const errorDescription = err.response.data.message;
@@ -69,14 +83,8 @@ const CreateRestaurant = () => {
     setAddressNumber("");
     setCity("");
     setTables(0);
+    setImage("");
   };
-
-  const handleRestoNameChange = (e) => setRestoName(e.target.value);
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handleAddressChange = (e) => setAddress(e.target.value);
-  const handleAddressNumberChange = (e) => setAddressNumber(e.target.value);
-  const handleCityChange = (e) => setCity(e.target.value);
-  const handleTablesChange = (e) => setTables(e.target.value);
 
   return (
     <>
@@ -84,10 +92,7 @@ const CreateRestaurant = () => {
         <Card.Body>
           <Card.Title className="titleCard">Add new restaurant</Card.Title>
           <Form onSubmit={handleSubmit}>
-            <Form.Group
-              className="mb-3 col-form-label"
-              controlId="exampleForm.ControlInput1"
-            >
+            <Form.Group className="mb-3 col-form-label">
               <label htmlFor="recipient-name" className="col-form-label mt-2">
                 *Restaurant Name:
               </label>
@@ -96,8 +101,9 @@ const CreateRestaurant = () => {
                 placeholder="Restaurant name"
                 name="RestoName"
                 value={restoName}
+                className="mt-1"
                 autoFocus
-                onChange={handleRestoNameChange}
+                onChange={(e) => setRestoName(e.target.value)}
               />
               <label htmlFor="recipient-name" className="col-form-label mt-2">
                 *Email:
@@ -108,7 +114,7 @@ const CreateRestaurant = () => {
                 name="email"
                 value={email}
                 className="mt-1"
-                onChange={handleEmailChange}
+                onChange={(e) => setEmail(e.target.value)}
                 autoFocus
               />
               <label htmlFor="recipient-name" className="col-form-label mt-2">
@@ -120,7 +126,7 @@ const CreateRestaurant = () => {
                 value={address}
                 className="mt-1"
                 name="address"
-                onChange={handleAddressChange}
+                onChange={(e) => setAddress(e.target.value)}
                 autoFocus
               />
               <label htmlFor="recipient-name" className="col-form-label mt-2">
@@ -132,7 +138,7 @@ const CreateRestaurant = () => {
                 value={addressNumber}
                 name="addressNumber"
                 className="mt-1"
-                onChange={handleAddressNumberChange}
+                onChange={(e) => setAddressNumber(e.target.value)}
                 autoFocus
               />
               <label htmlFor="recipient-name" className="col-form-label mt-2">
@@ -144,19 +150,9 @@ const CreateRestaurant = () => {
                 value={city}
                 className=""
                 name="city"
-                onChange={handleCityChange}
+                onChange={(e) => setCity(e.target.value)}
                 autoFocus
               />
-              {/* <label htmlFor="recipient-name" className="col-form-label mt-2">
-                
-              </label>
-              <NumericInput
-                min={0}
-                max={30}
-                value={tables}
-                onChange={handleTablesChange}
-                type="number"
-              /> */}
               <label htmlFor="recipient-name" className="col-form-label mt-2">
                 Number of tables:
               </label>
@@ -166,22 +162,21 @@ const CreateRestaurant = () => {
                 value={tables}
                 className=""
                 name="tables"
-                onChange={handleTablesChange}
+                // onChange={handleTablesChange}
+                onChange={(e) => setTables(e.target.value)}
                 autoFocus
               />
-              {/* <label htmlFor="recipient-name" className="col-form-label mt-2">
-                Add a picture:
-              </label> */}
-              {/* <Form.Control
+              <label className="mt-3" htmlFor="pet-select">
+                Image:
+              </label>
+              <Form.Control
                 type="file"
-                placeholder="Add a picture"
-                // value={tables}
-                enctype="multipart/form-data"
-                className=""
-                name="movie-cover-image"
-                onChange={handlePhotoChange}
+                placeholder="Add an Image"
                 autoFocus
-              /> */}
+                // value={image}
+                className="mt-1"
+                onChange={(e) => setImage(e.target.files[0])}
+              />
             </Form.Group>
             <Modal.Footer>
               <Button
@@ -196,7 +191,7 @@ const CreateRestaurant = () => {
               htmlFor="recipient-name"
               className="col-form-label text-end mt-0 fs-6 fst-italic"
             >
-              *Required
+              <small>*Required</small>
             </label>
           </Form>
         </Card.Body>

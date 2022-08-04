@@ -28,13 +28,13 @@ const QrCode = () => {
     <>
       <div className="container">
         <div className="row">
-          <div className="col-12 d-flex align-items-center justify-content-center mt-5">
-            <h1 className="col-3 ">
+          <div className="col-12 d-flex align-items-center justify-content-center mt-sm-5">
+            <h1 className="col-12 col-sm-3 ">
               Hi {userData.username} !! this your QR code, use it to get
               discounts on your favorites Restaurants
             </h1>
           </div>
-          <div className="qrcode__container mt-5 d-flex align-items-center justify-content-center">
+          <div className="qrcode__container mt-2 mt-sm-5 d-flex align-items-center justify-content-center">
             <div>{qrcode}</div>
           </div>
         </div>

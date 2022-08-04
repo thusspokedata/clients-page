@@ -12,7 +12,6 @@ const Signup = () => {
   // bootstrap
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
 
   // adding newbeer states
   const [username, setName] = useState("");
@@ -78,7 +77,7 @@ const Signup = () => {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3">
               <label htmlFor="recipient-name" className="col-form-label mt-2">
                 *Username:
               </label>

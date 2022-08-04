@@ -13,15 +13,9 @@ import Card from "react-bootstrap/Card";
 import { AuthContext } from "../context/auth";
 
 const CreateRestaurant = () => {
-  // const [userData, setUserData] = useState("");
-
   // bootstrap
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
-  //   const handleShow = () => setShow(true);
-
-  const { user } = useContext(AuthContext);
-
   // adding new restaurant states
   const [restoName, setRestoName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,6 +26,7 @@ const CreateRestaurant = () => {
   const [image, setImage] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -60,7 +55,7 @@ const CreateRestaurant = () => {
         axios
           .post(
             // "https://foodstrap-berlin.herokuapp.com/api/restaurants/add-new",
-            "/api/restaurants/add-new",
+            "/api/resto/add-new",
             requestBody,
             {
               headers: { Authorization: `Bearer ${storedToken}` },
@@ -68,7 +63,7 @@ const CreateRestaurant = () => {
           )
           .then((response) => {
             Swal.fire("Restaurant added");
-            //console.log(response);
+            console.log(response);
             navigate("/admin-page");
           });
       })

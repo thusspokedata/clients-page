@@ -4,13 +4,15 @@ import Signup from "./auth/Signup";
 import Login from "./auth/Login";
 import AdminSignup from "./auth/AdminSignup";
 import ProtectedRoute from "./components/ProtectedRoutes";
-import ProtectedAdminRoute from "./components/ProtectedAdminRoutes";
+import ShowRestaurants from "./components/Restaurants";
+// import ProtectedAdminRoute from "./components/ProtectedAdminRoutes";
 // import AddEmployee from "./components/AddEmployee";
 import { Routes, Route } from "react-router-dom";
 import Qr from "./pages/QR";
 import AdminPage from "./pages/AdminPage";
 import ConfirmationPage from "./pages/ConfirmationPage";
 import MainPage from "./pages/MainPage";
+// import Resto from "./pages/Restaurants";
 // import SignupLogin from "./pages/SignupLogin";
 
 function App() {
@@ -39,6 +41,7 @@ function App() {
         <Route path="/admin-signup" element={<AdminSignup />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/restaurants" element={<ShowRestaurants />} />
         <Route path="*" element={<h1>404- Not Found </h1>} />
       </Routes>
     </div>

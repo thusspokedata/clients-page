@@ -23,8 +23,8 @@ const AddEmployee = () => {
   const navigate = useNavigate();
 
   const { user } = useContext(AuthContext);
-  console.log(`this is the userRole: ${user._id}`);
 
+  /////////////// Role input ///////////////////////
   let userRoles = ["admin", "waiter", "cooker"];
   const roles = userRoles.map((userrole, i) => {
     return (

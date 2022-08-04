@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth";
 
 // Bootstrap
@@ -36,6 +35,9 @@ function Header() {
                     <Nav.Link className="newColor" href="/qr">
                       QR
                     </Nav.Link>
+                    <Nav.Link className="newColor" href="/restaurants">
+                      Restaurants
+                    </Nav.Link>
                   </>
                 ) : (
                   <Nav.Link className="newColor" href="/qr">
@@ -61,6 +63,9 @@ function Header() {
                 </Nav.Link>
                 <Nav.Link className="newColor" href="/signup">
                   Not an account? Sign Up
+                </Nav.Link>
+                <Nav.Link className="newColor" href="/restaurants">
+                  Restaurants
                 </Nav.Link>
               </Nav>
             </>

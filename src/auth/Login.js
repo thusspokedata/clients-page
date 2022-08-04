@@ -67,7 +67,7 @@ const Login = () => {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3">
               <label htmlFor="recipient-name" className="col-form-label mt-2">
                 *Email:
               </label>

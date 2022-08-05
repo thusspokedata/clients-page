@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Belleza&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap");
+
+$theme-colors: (
+  "info": tomato,
+  "danger": teal,
+);
+
+$primary: #3cb4ab;
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+$bg: #d9c259;
+$color-text: #888c41;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fdf4e7;
+}
+
+h1 {
+  font-family: bebas neue;
+  font-size: large;
+  text-align: center;
+  color: $color-text;
+}
+
+/* Modify the background color */
+.navbar-custom {
+  background-color: $bg;
+  color: $color-text;
+  font-family: "Old Standard TT", serif;
+  height: 70px;
+}
+
+.navbar-brand {
+  font-family: "Old Standard TT", serif;
+  color: $color-text;
+}
+
+.formular {
+  color: #8c7d3a;
+  font-family: "Old Standard TT", serif;
+  font-weight: bold;
+  font-size: large;
+}
+
+.mb-3 {
+  color: #8c6856;
+  font-family: "Old Standard TT", serif;
+}
+
+.col-form-label {
+  color: #8c6856;
+  font-family: "Old Standard TT", serif;
+}
+
+.signupForm {
+  color: #8c7d3a;
+  font-family: "Old Standard TT", serif;
+  font-weight: bold;
+  font-size: large;
+}
+
+.titleCard {
+  color: #8c7d3a;
+  font-family: "Old Standard TT", serif;
+  font-weight: bold;
+  font-size: large;
+}
+
+/* Logo - main page */
+
+.newColor {
+  background-color: $bg;
+}
+
+.text1 {
+  color: #8c7d3a;
+  font-family: "Old Standard TT", serif;
+  font-weight: bolder;
+  font-size: medium;
+}
+
+.text2 {
+  color: #594f21;
+  font-family: "Old Standard TT", serif;
+  font-weight: light;
+  font-size: 0.7em;
+}
+
+.container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

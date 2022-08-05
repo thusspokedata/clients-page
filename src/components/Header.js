@@ -2,9 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../context/auth";
 
 // Bootstrap
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 function Header() {
   const { isLoggedIn, logoutUser, user } = useContext(AuthContext);
@@ -40,9 +38,14 @@ function Header() {
                     </Nav.Link>
                   </>
                 ) : (
-                  <Nav.Link className="newColor" href="/qr">
-                    QR
-                  </Nav.Link>
+                  <>
+                    <Nav.Link className="newColor" href="/qr">
+                      QR
+                    </Nav.Link>
+                    <Nav.Link className="newColor" href="/restaurants">
+                      Restaurants
+                    </Nav.Link>
+                  </>
                 )}
               </Nav>
               <Nav>

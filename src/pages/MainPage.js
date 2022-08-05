@@ -1,6 +1,6 @@
 import React from "react";
-import foto from "../Assets/instagram_profile_image.png";
-import foto2 from "../Assets/qr.png";
+import foto from "../assets/instagram_profile_image.png";
+import foto2 from "../assets/qr.png";
 
 function MainPage() {
   return (

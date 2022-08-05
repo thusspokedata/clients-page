@@ -1,16 +1,20 @@
-import "./App.css";
+// import "./App.css";
+import "./assets/css/custom.min.css";
+import { Routes, Route } from "react-router-dom";
+
 import Header from "./components/Header";
+import RestaurantDetail from "./components/RestaurantDetails";
 import Signup from "./auth/Signup";
 import Login from "./auth/Login";
 import AdminSignup from "./auth/AdminSignup";
 import ProtectedRoute from "./components/ProtectedRoutes";
 
-import { Routes, Route } from "react-router-dom";
 import Qr from "./pages/QR";
 import AdminPage from "./pages/AdminPage";
 import ConfirmationPage from "./pages/ConfirmationPage";
 import MainPage from "./pages/MainPage";
 import Resto from "./pages/Restaurants";
+
 // import SignupLogin from "./pages/SignupLogin";
 
 function App() {
@@ -40,6 +44,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/restaurants" element={<Resto />} />
+        <Route path="/restaurant-details" element={<RestaurantDetail />} />
         <Route path="*" element={<h1>404- Not Found </h1>} />
       </Routes>
     </div>

@@ -9,7 +9,7 @@ function Resto() {
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
     axios
-      .get(`/api/resto/restaurants`, {
+      .get(`https://foodstrap-berlin.herokuapp.com/api/resto/restaurants`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {

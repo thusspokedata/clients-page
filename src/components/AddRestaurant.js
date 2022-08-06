@@ -54,8 +54,8 @@ const CreateRestaurant = () => {
         const storedToken = localStorage.getItem("authToken");
         axios
           .post(
-            // "https://foodstrap-berlin.herokuapp.com/api/restaurants/add-new",
-            "/api/resto/add-new",
+            "https://foodstrap-berlin.herokuapp.com/api/resto/add-new",
+            // "/api/resto/add-new",
             requestBody,
             {
               headers: { Authorization: `Bearer ${storedToken}` },

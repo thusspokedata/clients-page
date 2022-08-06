@@ -39,8 +39,8 @@ const Signup = () => {
     };
     axios
       .post(
-        // "https://foodstrap-berlin.herokuapp.com/api/auth/signup",
-        "/api/auth/signup",
+        "https://foodstrap-berlin.herokuapp.com/api/auth/signup",
+        // "/api/auth/signup",
         requestBody
       )
       .then((response) => {

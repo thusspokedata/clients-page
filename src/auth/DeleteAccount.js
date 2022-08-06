@@ -32,7 +32,7 @@ const DeleteAccount = () => {
     console.log(requestBody);
     axios
       .post(
-        "https://foodstrap-berlin.herokuapp.com/api/restaurants/delete-account",
+        "https://foodstrap-berlin.herokuapp.com/api/auth/delete-account",
         // "/api/auth/delete-account",
         requestBody
       )

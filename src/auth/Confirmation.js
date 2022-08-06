@@ -29,8 +29,8 @@ const CreatePassword = () => {
     console.log(requestBody);
     axios
       .put(
-        // "https://foodstrap-berlin.herokuapp.com/api/auth/update-password",
-        "/api/auth/update-password",
+        "https://foodstrap-berlin.herokuapp.com/api/auth/update-password",
+        // "/api/auth/update-password",
         requestBody
       )
       .then((response) => {

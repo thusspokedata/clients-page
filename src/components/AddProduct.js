@@ -60,8 +60,8 @@ const AddProduct = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
       .post(
-        // "https://foodstrap-berlin.herokuapp.com/api/products/add-new",
-        "/api/products/add-new",
+        "https://foodstrap-berlin.herokuapp.com/api/products/add-new",
+        // "/api/products/add-new",
         requestBody,
         {
           headers: { Authorization: `Bearer ${storedToken}` },

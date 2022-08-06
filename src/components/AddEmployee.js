@@ -59,8 +59,8 @@ const AddEmployee = () => {
     console.log(requestBody);
     axios
       .post(
-        // "https://foodstrap-berlin.herokuapp.com/api/auth/signupEmp",
-        "/api/auth/signupEmp",
+        "https://foodstrap-berlin.herokuapp.com/api/auth/signupEmp",
+        // "/api/auth/signupEmp",
         requestBody
       )
       .then((response) => {

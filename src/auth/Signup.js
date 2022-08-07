@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import { Button, Form, Modal } from "react-bootstrap/Button";
+import { Button, Form, Modal } from "react-bootstrap";
 
 const Signup = () => {
   // bootstrap

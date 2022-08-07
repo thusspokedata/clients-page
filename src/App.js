@@ -1,5 +1,4 @@
 // import "./App.css";
-import "./assets/css/custom.min.css";
 import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -14,8 +13,8 @@ import AdminPage from "./pages/AdminPage";
 import ConfirmationPage from "./pages/ConfirmationPage";
 import MainPage from "./pages/MainPage";
 import Resto from "./pages/Restaurants";
-
-// import SignupLogin from "./pages/SignupLogin";
+// style
+import "./assets/css/custom.min.css";
 
 function App() {
   return (

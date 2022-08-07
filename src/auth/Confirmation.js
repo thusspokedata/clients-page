@@ -3,9 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
+import {Button, Form, Modal} from "react-bootstrap";
 
 const CreatePassword = () => {
   // bootstrap

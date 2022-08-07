@@ -4,10 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth";
 // Bootstrap
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
-import Card from "react-bootstrap/Card";
+import {Button, Form, Modal, Card} from "react-bootstrap";
 
 const AddProduct = () => {
   // bootstrap

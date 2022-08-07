@@ -5,9 +5,7 @@ import { AuthContext } from "../context/auth";
 import Swal from "sweetalert2";
 
 // Bootstrap
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
+import { Button, Form, Modal } from "react-bootstrap";
 
 const Login = () => {
   // bootstrap
@@ -40,7 +38,7 @@ const Login = () => {
         console.log(response.data);
         const token = response.data.authToken;
         // store the token
-        Swal.fire("You are loged in");
+        Swal.fire("You are logged in");
         storeToken(token);
         verifyStoredToken().then(() => {
           // redirect to qr page
